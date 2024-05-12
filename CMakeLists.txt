@@ -5,6 +5,9 @@ project(MyGWCAProject)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin/")
 add_library(my_gwca_library SHARED src/dllmain.cpp)
 
+add_compile_options(/MP /permissive-)
+target_compile_definitions(my_gwca_library PRIVATE NOMINMAX)
+
 # Import GWCA as a dependency
 include(FetchContent)
 FetchContent_Declare(
